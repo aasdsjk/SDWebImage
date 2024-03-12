@@ -112,7 +112,8 @@
     
     cell.customTextLabel.text = [NSString stringWithFormat:@"Image #%ld", (long)indexPath.row];
     __weak SDAnimatedImageView *imageView = cell.customImageView;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.objects[indexPath.row]]
+    NSURL *url = [NSURL URLWithString:self.objects[indexPath.row]];
+    [imageView sd_setImageWithURL:self.objects[indexPath.row]
                  placeholderImage:placeholderImage
                           options:0
                           context:@{SDWebImageContextImageThumbnailPixelSize : @(CGSizeMake(180, 120))}

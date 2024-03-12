@@ -26,6 +26,8 @@
         return [bundledPath stringByAppendingPathComponent:fileName.stringByDeletingPathExtension];
     };
     
+    [SDImageCache sharedImageCache].config.shouldUseWeakMemoryCache = YES;
+    
     if (@available(iOS 14, tvOS 14, macOS 11, watchOS 7, *)) {
         // iOS 14 supports WebP built-in
         [[SDImageCodersManager sharedManager] addCoder:[SDImageAWebPCoder sharedCoder]];
